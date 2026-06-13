@@ -1,0 +1,53 @@
+<footer class="footer">
+    <div class="container footer-content">
+
+        <div class="footer-section">
+            <div class="footer-logo-wrapper" routerLink="/home"
+                style="cursor: pointer; display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+                <img src="logo.png" alt="EloPet Logo" style="height: 70px;">
+                <span
+                    style="font-family: 'Quicksand', sans-serif; font-weight: 700; font-size: 30px; letter-spacing: -1.2px; text-transform: lowercase; line-height: 1;">
+                    <span style="color: #2868bb;">elo</span><span style="color: #fd7217;">pet</span>
+                </span>
+            </div>
+
+            <p class="footer-description">
+                Transformando vidas através da adoção responsável.
+            </p>
+            <div class="social-icons">
+                <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
+                    <img src="icone-instagram.png" alt="Instagram">
+                </a>
+                <a href="https://www.facebook.com" target="_blank" aria-label="Facebook">
+                    <img src="icone-facebook.png" alt="Facebook">
+                </a>
+                <a href="https://www.youtube.com" target="_blank" aria-label="Youtube">
+                    <img src="icone-youtube.png" alt="Youtube">
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-section">
+            <h4>Navegação</h4>
+            <nav class="footer-nav">
+                <a routerLink="/home"><i class="material-icons">home</i> Início</a>
+                <a routerLink="/vitrine"><i class="material-icons">pets</i> Adotar</a>
+            </nav>
+        </div>
+
+        <div class="footer-section">
+            <h4>Contato</h4>
+            <p class="contact-item"><i class="material-icons">email</i> contato@elopet.com</p>
+            <p class="contact-item"><i class="material-icons">location_on</i> São Paulo, Brasil</p>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="divider-footer"></div>
+            <p>&copy; {{ anoAtual }} EloPet - Todos os direitos reservados.</p>
+            <p>Projeto Integrador - Adoção Responsável</p>
+        </div>
+    </div>
+</footer>

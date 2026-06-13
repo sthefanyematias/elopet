@@ -1,0 +1,261 @@
+.detalhes-body {
+    background-color: #fff5ed;
+    min-height: 100vh;
+    padding: 40px 0;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.btn-voltar {
+    background: none;
+    border: none;
+    color: #2868bb;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+
+.detalhes-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.pet-card-detalhe {
+    background: #fff;
+    border-radius: 35px;
+    overflow: hidden;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.05);
+}
+
+.pet-img-grande {
+    width: 100%;
+    height: 400px;
+}
+
+.pet-img-grande img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.pet-info-completa {
+    padding: 40px;
+}
+
+.pet-info-completa h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 32px;
+    color: #1e293b;
+    margin: 10px 0;
+}
+
+.form-interesse {
+    background: #fff;
+    padding: 40px;
+    border-radius: 35px;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.05);
+}
+
+.form-h2 {
+    text-align: center;
+}
+
+.form-sub {
+    text-align: center
+}
+
+.form-interesse h2 {
+    font-family: 'Poppins', sans-serif;
+    color: #fd7217;
+    margin-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #f1f5f9;
+    border-radius: 12px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.btn-enviar {
+    width: 100%;
+    background: #fd7217;
+    color: #fff;
+    border: none;
+    padding: 16px;
+    border-radius: 18px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.badge-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+}
+
+.badge {
+    padding: 5px 12px;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+}
+
+.badge-blue {
+    background: #eff6ff;
+    color: #2868bb;
+}
+
+.badge-orange {
+    background: #fff7ed;
+    color: #fd7217;
+}
+
+.text-error {
+    color: #ef4444;
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 5px;
+    display: block;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+.btn-enviar:disabled {
+    background-color: #cbd5e1;
+    cursor: not-allowed;
+    transform: none;
+}
+
+input.ng-invalid.ng-touched,
+textarea.ng-invalid.ng-touched {
+    border-color: #fca5a5;
+    background-color: #fffafb;
+}
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    backdrop-filter: blur(4px);
+    animation: fadeIn 0.2s ease;
+}
+
+.modal-box {
+    width: 90%;
+    max-width: 420px;
+    background: #ffffff;
+    border-radius: 28px;
+    padding: 35px 30px;
+    text-align: center;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.18);
+    animation: scaleUp 0.25s ease;
+}
+
+.modal-icon {
+    font-size: 70px;
+    color: #22c55e;
+    margin-bottom: 12px;
+}
+
+.modal-box h2 {
+    font-family: 'Poppins';
+    font-size: 32px;
+    color: #1e293b;
+    margin-bottom: 12px;
+}
+
+.modal-box p {
+    font-family: 'Poppins';
+    font-size: 17px;
+    line-height: 1.6;
+    color: #475569;
+    margin-bottom: 28px;
+}
+
+.btn-modal {
+    border: none;
+    background: #fd7217;
+    color: #fff;
+    font-family: 'Poppins';
+    font-size: 16px;
+    font-weight: 700;
+    padding: 14px 40px;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-modal:hover {
+    transform: translateY(-2px);
+    background: #ea640d;
+}
+
+.modal-sucesso {
+    color: #22c55e;
+}
+
+.modal-erro {
+    color: #ef4444;
+}
+
+.loading-container p{
+    text-align: center;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes scaleUp {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}

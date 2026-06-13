@@ -1,0 +1,392 @@
+.pagina-lista {
+    padding: 40px 32px;
+    background-color: #fff5ed;
+    min-height: calc(100vh - 160px);
+}
+
+.painel-topo h1 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #2868bb;
+    margin-bottom: 6px;
+}
+
+.subtitulo {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin-bottom: 20px;
+}
+
+.divisor {
+    border: none;
+    height: 1px;
+    background: #e2e8f0;
+    margin-bottom: 30px;
+}
+
+.secao-titulo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.secao-titulo .material-icons {
+    font-size: 22px;
+    color: #2868bb;
+}
+
+.secao-titulo h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #2868bb;
+}
+
+.secao-titulo.concedidos .material-icons,
+.secao-titulo.concedidos h2 {
+    color: #94a3b8;
+}
+
+.badge-count {
+    background: #2868bb;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 2px 10px;
+    border-radius: 20px;
+}
+
+.badge-count.concedido {
+    background: #cbd5e1;
+    color: #64748b;
+}
+
+.loading-state,
+.sem-dados {
+    text-align: center;
+    padding: 40px 20px;
+    color: #94a3b8;
+}
+
+.sem-dados .material-icons {
+    font-size: 40px;
+    display: block;
+    margin-bottom: 10px;
+    color: #cbd5e1;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #e2e8f0;
+    border-top-color: #2868bb;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin: 0 auto 16px;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.painel {
+    width: 100%;
+    max-width: 100%;
+    padding: 32px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    box-sizing: border-box;
+}
+
+.tabela-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.tabela {
+    width: 100%;
+    min-width: 900px;
+    border-collapse: collapse;
+}
+
+.tabela thead tr {
+    background: #2868bb;
+    color: #fff;
+}
+
+.tabela thead th {
+    padding: 14px 16px;
+    text-align: left;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.tabela tbody tr {
+    border-bottom: 1px solid #f1f5f9;
+    transition: background 0.2s;
+}
+
+.tabela tbody tr:last-child {
+    border-bottom: none;
+}
+
+.tabela tbody tr:hover {
+    background: #f8fafc;
+}
+
+.tabela tbody td {
+    padding: 13px 16px;
+    color: #334155;
+    vertical-align: middle;
+}
+
+.nome-pet {
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.motivo {
+    color: #64748b;
+    font-style: italic;
+    font-size: 0.82rem;
+}
+
+.tabela-concedida {
+    border-color: #e2e8f0;
+    opacity: 0.72;
+}
+
+.tabela-cinza thead tr {
+    background: #94a3b8;
+}
+
+.linha-concedida {
+    background: #f8fafc !important;
+    color: #94a3b8 !important;
+}
+
+.linha-concedida td {
+    color: #94a3b8 !important;
+}
+
+.linha-concedida .nome-pet {
+    color: #b0bac5 !important;
+}
+
+.badge {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.badge.azul {
+    background: #dbeafe;
+    color: #2868bb;
+}
+
+.badge.laranja {
+    background: #fff3e0;
+    color: #fd7217;
+}
+
+.badge.verde {
+    background: #dcfce7;
+    color: #16a34a;
+}
+
+.badge.cinza {
+    background: #f1f5f9;
+    color: #94a3b8;
+}
+
+.badge-adotado-label {
+    background: #f1f5f9;
+    color: #64748b;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.acoes-td {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.btn-acao {
+    width: 34px;
+    height: 34px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.btn-acao .material-icons {
+    font-size: 18px;
+}
+
+.btn-acao.adotar {
+    background: #dbeafe;
+    color: #2868bb;
+}
+
+.btn-acao.adotar:hover:not(:disabled) {
+    background: #2868bb;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.btn-acao.adotar:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+.btn-acao.excluir {
+    background: #fee2e2;
+    color: #ef4444;
+}
+
+.btn-acao.excluir:hover {
+    background: #ef4444;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.modal-confirmacao {
+    background: #fff;
+    border-radius: 20px;
+    padding: 36px 40px;
+    max-width: 420px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    animation: slideUp 0.25s ease;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.icone-alerta {
+    font-size: 48px !important;
+    color: #fd7217;
+    display: block;
+    margin-bottom: 14px;
+}
+
+.modal-confirmacao h2 {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #1e293b;
+    margin-bottom: 10px;
+}
+
+.modal-confirmacao p {
+    font-size: 0.95rem;
+    color: #475569;
+    line-height: 1.5;
+    margin-bottom: 6px;
+}
+
+.modal-confirmacao .aviso {
+    font-size: 0.82rem;
+    color: #94a3b8;
+    margin-bottom: 24px;
+}
+
+.modal-acoes {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.btn-confirmar {
+    background: #2868bb;
+    color: #fff;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    transition: all 0.25s;
+}
+
+.btn-confirmar:hover {
+    background: #1e5091;
+    transform: translateY(-2px);
+}
+
+.btn-cancelar-modal {
+    background: transparent;
+    border: 2px solid #e2e8f0;
+    color: #64748b;
+    padding: 12px 28px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    transition: all 0.25s;
+}
+
+.btn-cancelar-modal:hover {
+    border-color: #fd7217;
+    color: #fd7217;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .painel {
+        padding: 24px 14px;
+    }
+
+    .tabela {
+        font-size: 0.78rem;
+    }
+
+    .tabela thead th,
+    .tabela tbody td {
+        padding: 10px 10px;
+    }
+}

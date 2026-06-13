@@ -1,0 +1,108 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    padding: 20px;
+}
+
+.modal-card {
+    background: white;
+    width: 100%;
+    max-width: 450px;
+    border-radius: 25px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    animation: surgindo 0.3s ease-out;
+}
+
+@keyframes surgindo {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.modal-header {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.icone-fechar {
+    cursor: pointer;
+    color: #94a3b8;
+    transition: 0.3s;
+}
+
+.icone-fechar:hover {
+    color: #ef4444;
+}
+
+.modal-body h2 {
+    margin: 15px 0 10px;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #1e293b;
+}
+
+.modal-body p {
+    color: #64748b;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.icone-status span {
+    font-size: 60px;
+}
+
+.icone-status {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 12px;
+}
+
+.icone-status .material-icons {
+    font-size: 56px;
+}
+
+.icone-status.sucesso .material-icons {
+    color: #22c55e;
+}
+
+.icone-status.erro .material-icons {
+    color: #e53935;
+}
+
+.icone-status.info .material-icons {
+    color: #2868bb;
+}
+
+.btn-modal {
+    background: #fd7217;
+    color: white;
+    border: none;
+    padding: 12px 40px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-modal:hover {
+    background: #e06514;
+    transform: translateY(-2px);
+}

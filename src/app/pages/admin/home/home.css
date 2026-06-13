@@ -1,0 +1,135 @@
+.principal {
+    padding: 80px 20px;
+    background: #fff5ed;
+    min-height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-central {
+    width: 100%;
+    max-width: 950px;
+}
+
+.boas-vindas {
+    margin-bottom: 45px;
+    text-align: center;
+}
+
+.boas-vindas h1 {
+    color: #2868bb;
+    font-size: 2.8rem;
+    font-weight: 800;
+}
+
+.boas-vindas p {
+    color: #2868bb;
+    font-size: 1.1rem;
+    /* font-weight: 600; */
+    margin-top: 18px;
+}
+
+.grade-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 320px);
+    justify-content: center;
+    gap: 18px;
+}
+
+.card-vidro {
+    background: white;
+    border-radius: 25px;
+    padding: 32px 28px;
+    width: 100%;
+    min-height: 240px;
+    text-decoration: none;
+    transition: 0.3s;
+    border: 1px solid #e2e8f0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+}
+
+.card-vidro:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    border-color: #fd7217;
+}
+
+.icone {
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.icone img {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+}
+
+.azul { background-color: #2868bb; }
+.laranja { background-color: #fd7217; }
+
+.card-vidro h3 {
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+}
+
+h3.orange { color: #fd7217; }
+h3.blue { color: #2868bb; }
+
+.card-vidro p {
+    color: #64748b;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.destaque {
+    grid-column: span 2;
+    width: 100%;
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 18px;
+    padding: 28px 35px;
+    background: linear-gradient(135deg, #2868bb, #1e5091);
+}
+
+.icone-destaque {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icone-destaque .material-icons {
+    font-size: 52px;
+    color: #fd7217;
+}
+
+.texto-destaque { flex: 1; }
+
+.destaque h3,
+.destaque p { color: white; }
+
+@media (max-width: 750px) {
+    .grade-cards { grid-template-columns: 1fr; }
+    .card-vidro { min-height: auto; }
+    .destaque {
+        grid-column: span 1;
+        flex-direction: column;
+        text-align: center;
+    }
+}

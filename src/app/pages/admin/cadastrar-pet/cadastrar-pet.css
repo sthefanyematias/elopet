@@ -1,0 +1,228 @@
+.principal-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    background-color: #fff5ed;
+    min-height: 85vh;
+}
+
+.painel-formulario {
+    width: 100%;
+    max-width: 650px;
+    padding: 40px;
+    background: #ffffff;
+    border-radius: 25px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+}
+
+.painel-formulario h1 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #2868bb;
+    text-align: center;
+    font-weight: 800;
+}
+
+.divisor-vidro {
+    border: none;
+    height: 1px;
+    background: #e2e8f0;
+    margin-bottom: 30px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.campo label {
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    color: #1e293b;
+    font-weight: 600;
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+    background: #f8fafc;
+    border: 2px solid #f1f5f9;
+    padding: 12px;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+    outline: none;
+    border-color: #2868bb;
+    background: #fff;
+}
+
+.campo-grupo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.rodape-formulario {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.btn-gravar {
+    background: #2868bb;
+    color: white;
+    border: none;
+    width: 180px;
+    height: 50px;
+    border-radius: 15px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-gravar:hover {
+    background: #1e5091;
+    transform: translateY(-3px);
+}
+
+.btn-cancelar {
+    background: transparent;
+    border: 2px solid #fd7217;
+    color: #fd7217;
+    width: 180px;
+    height: 50px;
+    border-radius: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-cancelar:hover {
+    background: #fff5ed;
+    transform: translateY(-3px);
+}
+
+input[readonly] {
+    background: #f1f5f9;
+    color: #94a3b8;
+    cursor: not-allowed;
+}
+
+.secao-adotante {
+    background: #f0f6ff;
+    border-radius: 10px;
+    padding: 16px;
+    margin-top: 8px;
+}
+
+.card-adotante-preview {
+    background: #fff;
+    border: 1px solid #c8daee;
+    border-radius: 8px;
+    padding: 12px;
+    margin-top: 10px;
+}
+
+.card-adotante-preview p {
+    font-size: 13px;
+    margin-bottom: 6px;
+    color: #444;
+}
+
+.aviso-sem-interesse {
+    font-size: 13px;
+    color: #888;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.titulo-adotante {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #2868bb;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.grid-interessados {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.card-interessado {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    border: 2px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 14px 16px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    background: #fff;
+}
+
+.card-interessado:hover {
+    border-color: #2868bb;
+    background: #f0f6ff;
+}
+
+.card-interessado.selecionado {
+    border-color: #2868bb;
+    background: #eef4ff;
+    box-shadow: 0 0 0 3px rgba(40, 104, 187, 0.15);
+}
+
+.card-radio .material-icons {
+    font-size: 22px;
+    color: #94a3b8;
+    margin-top: 2px;
+}
+
+.card-interessado.selecionado .card-radio .material-icons {
+    color: #2868bb;
+}
+
+.card-dados {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.card-dados strong {
+    font-size: 0.95rem;
+    color: #1e293b;
+}
+
+.card-dados span {
+    font-size: 0.82rem;
+    color: #64748b;
+}
+
+.badge-espera {
+    display: inline-block;
+    margin-top: 4px;
+    background: #fff3e0;
+    color: #fd7217;
+    font-size: 0.75rem !important;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 20px;
+    width: fit-content;
+}

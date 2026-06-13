@@ -1,0 +1,40 @@
+<div class="login-page-container">
+    <div class="login-card">
+        <div class="logo-area">
+            <span class="logo-texto">
+                <span style="color: #2868bb;">elo</span><span style="color: #fd7217;">pet</span>
+            </span>
+            <p class="subtitulo">Painel Administrativo</p>
+        </div>
+
+        <form [formGroup]="formLogin">
+            <div class="form-group">
+                <label>E-mail</label>
+                <input type="email" formControlName="email" placeholder="admin@elopet.com"
+                    (keydown.enter)="senhaInput.focus()">
+            </div>
+
+            <div class="form-group">
+                <label>Senha</label>
+                <input #senhaInput type="password" formControlName="senha" placeholder="••••••"
+                    (keydown.enter)="!exibirModal && fazerLogin()">
+            </div>
+
+            <button type="button" class="btn-entrar" [disabled]="formLogin.invalid || carregando"
+                (click)="fazerLogin()">
+                {{ carregando ? 'Verificando...' : 'Entrar' }}
+            </button>
+        </form>
+
+        <div class="voltar-site">
+            <a routerLink="/home">
+                <span class="material-icons" style="font-size:16px; vertical-align:middle;">arrow_back</span>
+                Ir para o site EloPet
+            </a>
+        </div>
+    </div>
+</div>
+
+<app-modal *ngIf="exibirModal" [titulo]="'Falha no Login'" [mensagem]="msgModal" [tipo]="'erro'"
+    (fechar)="exibirModal = false">
+</app-modal>

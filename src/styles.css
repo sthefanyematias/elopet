@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #fcfcfc;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+}
+
+@media (max-width: 992px) {
+    .container {
+        padding: 0 20px;
+    }
+
+    .benefits {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 20px;
+    }
+
+    .benefit-item {
+        max-width: 100%;
+    }
+
+    .divider {
+        display: none;
+    }
+
+    .sobre-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .sobre-img img {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 600px) {
+    .header-content {
+        flex-direction: column;
+        height: auto;
+        padding: 15px 0;
+        gap: 15px;
+    }
+
+    .menu {
+        gap: 15px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+
+    .footer-section.right {
+        text-align: center;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #fff5ed;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #fd7217;
+    border-radius: 10px;
+    border: 2px solid #fff5ed;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #e06514;
+}
+
+html {
+    scrollbar-color: #fd7217 #fff5ed;
+    scrollbar-width: thin;
+}

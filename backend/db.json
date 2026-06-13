@@ -1,0 +1,130 @@
+{
+  "pets": [
+    {
+      "nome": "Melissa",
+      "especie": "Cachorro",
+      "sexo": "Fêmea",
+      "idade": 6,
+      "unidadeIdade": "anos",
+      "porte": "Pequeno",
+      "status": "Disponível",
+      "imagem": "id1.jpeg",
+      "descricao": "Muito dócil, carinhosa e adora brincar com crianças.",
+      "adotanteId": null,
+      "id": 1
+    },
+    {
+      "id": 2,
+      "nome": "Thor",
+      "especie": "Cachorro",
+      "sexo": "Macho",
+      "idade": 10,
+      "unidadeIdade": "anos",
+      "porte": "Grande",
+      "status": "Disponível",
+      "imagem": "id2.jpg",
+      "descricao": "Um senhor muito tranquilo que procura um sofá para descansar.",
+      "adotanteId": null
+    },
+    {
+      "id": 4,
+      "nome": "Barney",
+      "especie": "Cachorro",
+      "sexo": "Macho",
+      "idade": 4,
+      "unidadeIdade": "anos",
+      "porte": "Médio",
+      "status": "Disponível",
+      "imagem": "id4.jpg",
+      "descricao": "Energia pura! Ideal para quem gosta de caminhadas.",
+      "adotanteId": null
+    },
+    {
+      "id": 5,
+      "nome": "Pipoca",
+      "especie": "Cachorro",
+      "sexo": "Fêmea",
+      "idade": 3,
+      "unidadeIdade": "anos",
+      "porte": "Pequeno",
+      "status": "Disponível",
+      "imagem": "id5.jpg",
+      "descricao": "Pequenina e alerta, uma excelente companhia para apartamento.",
+      "adotanteId": null
+    },
+    {
+      "id": 6,
+      "nome": "Simba",
+      "especie": "Gato",
+      "sexo": "Macho",
+      "idade": 2,
+      "unidadeIdade": "meses",
+      "porte": "Pequeno",
+      "status": "Disponível",
+      "imagem": "id6.jpg",
+      "descricao": "Um gatinho muito sociável e amoroso.",
+      "adotanteId": null
+    },
+    {
+      "id": 7,
+      "nome": "Amora",
+      "especie": "Cachorro",
+      "sexo": "Fêmea",
+      "idade": 5,
+      "unidadeIdade": "anos",
+      "porte": "Médio",
+      "status": "Disponível",
+      "imagem": "id7.jpg",
+      "descricao": "Calma e extremamente educada.",
+      "adotanteId": null
+    },
+    {
+      "id": 9,
+      "nome": "Bolinha",
+      "especie": "Gato",
+      "sexo": "Macho",
+      "idade": 1,
+      "unidadeIdade": "anos",
+      "porte": "Pequeno",
+      "status": "Disponível",
+      "imagem": "id9.jpg",
+      "descricao": "Um filhotão curioso que adora perseguir bolinhas de papel.",
+      "adotanteId": null
+    },
+    {
+      "id": 10,
+      "nome": "Maya",
+      "especie": "Cachorro",
+      "sexo": "Fêmea",
+      "idade": 4,
+      "unidadeIdade": "anos",
+      "porte": "Médio",
+      "status": "Disponível",
+      "imagem": "id10.jpg",
+      "descricao": "Cadela alegre que ama água e brincadeiras.",
+      "adotanteId": null
+    },
+    {
+      "id": 11,
+      "nome": "Fred",
+      "especie": "Cachorro",
+      "sexo": "Macho",
+      "idade": 5,
+      "unidadeIdade": "anos",
+      "porte": "Médio",
+      "status": "Disponível",
+      "imagem": "id11.webp",
+      "descricao": "Companheiro fiel para todas as horas.",
+      "adotanteId": null
+    }
+  ],
+  "interesses": [],
+  "usuarios": [
+    {
+      "id": 1,
+      "nome": "Administrador",
+      "email": "admin@elopet.com",
+      "senha": "1234"
+    }
+  ]
+}

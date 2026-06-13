@@ -1,0 +1,123 @@
+
+<div class="banner">
+    <img src="banner.png" class="imgBanner">
+</div>
+
+<section class="secao-laranja">
+    <div class="benefits">
+        <div class="benefit-item">
+            <div class="icon"><img src="icone-pata.png" alt="Pata"></div>
+            <div class="text">
+                <h3>Adoção responsável</h3>
+                <p>Pets vacinados e castrados.</p>
+            </div>
+        </div>
+        <div class="divider"></div>
+        <div class="benefit-item">
+            <div class="icon"><img src="icone-casa.png" alt="Casa"></div>
+            <div class="text">
+                <h3>Lares amorosos</h3>
+                <p>Conectamos pets a famílias.</p>
+            </div>
+        </div>
+        <div class="divider"></div>
+        <div class="benefit-item">
+            <div class="icon"><img src="icone-escudo.png" alt="Escudo"></div>
+            <div class="text">
+                <h3>Acompanhamento</h3>
+                <p>Garantimos o bem-estar.</p>
+            </div>
+        </div>
+        <div class="divider"></div>
+        <div class="benefit-item">
+            <div class="icon"><img src="icone-comunidade.png" alt="Comunidade"></div>
+            <div class="text">
+                <h3>Comunidade do bem</h3>
+                <p>Mundo melhor para animais.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="sobre-card">
+        <div class="sobre-img"><img src="dog.png" alt="Sobre nós"></div>
+        <div class="sobre-texto">
+            <h2>Sobre nós</h2>
+            <p>A <strong>EloPet</strong> nasceu para conectar animais que precisam de um lar a pessoas dispostas a
+                oferecer amor e cuidado.</p>
+            <p>Trabalhamos para tornar o processo de adoção seguro e acessível para todos.</p>
+            <p>Construímos histórias e transformamos vidas.</p>
+        </div>
+    </div>
+</section>
+
+<div class="wave-container">
+    <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+        <path fill="#fd7217"
+            d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1440,0L0,0Z">
+        </path>
+    </svg>
+</div>
+
+<section class="secao-azul">
+    <div class="container-destaques">
+        <div class="titulo-sessao">
+            <h2>Eles esperam por você</h2>
+            <p>Conheça alguns dos nossos amigos que buscam um lar</p>
+        </div>
+
+        <div class="grid-pets">
+            <div class="pet-card-home" *ngFor="let pet of petsDestaque; let i = index; trackBy: trackByPet">
+                <span class="tag" [ngClass]="{
+                    'tag-novo': i === 0,
+                    'tag-idoso': i === 1,
+                    'tag-urgente': i === 2
+                }">
+                    {{ i === 0 ? 'Recém-chegado' : i === 1 ? 'Pet Especial' : 'Adoção Rápida' }}
+                </span>
+                <img [src]="getImagem(pet.imagem)" [alt]="pet.nome">
+                <div class="pet-info-home">
+                    <h3>{{ pet.nome }}</h3>
+                    <p>{{ pet.especie }} • {{ pet.sexo }} • {{ pet.idade }} {{ pet.unidadeIdade || 'ano(s)' }}</p>
+                    <button class="btn-conhecer" [routerLink]="['/detalhes-pet', pet.id]">Conhecer</button>
+                </div>
+            </div>
+
+            <div *ngIf="petsDestaque.length === 0" style="text-align:center; color:#fff; padding: 40px;">
+                <p>Nenhum pet disponível no momento.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="secao-categorias">
+    <div class="categorias-wrapper">
+        <div class="titulo-categorias">
+            <h2>Qual porte combina com você?</h2>
+            <p>Encontre o companheiro ideal para sua rotina</p>
+        </div>
+
+        <div class="grid-categorias">
+            <div class="categoria-card" [routerLink]="['/vitrine']" [queryParams]="{ porte: 'Pequeno' }">
+                <div class="categoria-img"><img src="porte-pequeno.jpg" alt="Animais pequenos"></div>
+                <h3>Pequenos</h3>
+                <p>Cães e gatos pequenos são ótimos companheiros para apartamentos.</p>
+            </div>
+
+            <div class="categoria-card destaque" [routerLink]="['/vitrine']" [queryParams]="{ porte: 'Médio' }">
+                <div class="categoria-img"><img src="porte-medio.jpg" alt="Animais médios"></div>
+                <h3>Médios</h3>
+                <p>Pets de porte médio unem energia, adaptação e companheirismo.</p>
+            </div>
+
+            <div class="categoria-card" [routerLink]="['/vitrine']" [queryParams]="{ porte: 'Grande' }">
+                <div class="categoria-img"><img src="porte-grande.webp" alt="Animais grandes"></div>
+                <h3>Grandes</h3>
+                <p>Animais grandes criam vínculos fortes e adoram espaço para brincar.</p>
+            </div>
+        </div>
+
+        <div class="botao-central">
+            <button class="btn-ver-todos" routerLink="/vitrine">Ver todos os animais</button>
+        </div>
+    </div>
+</section>

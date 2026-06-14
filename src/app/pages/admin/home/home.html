@@ -1,0 +1,71 @@
+
+<app-header-admin></app-header-admin>
+
+<main class="principal">
+    <div class="container-central">
+        <div class="boas-vindas">
+            <h1>Painel Administrativo</h1>
+            <p>Olá, Admin! O que deseja fazer hoje?</p>
+        </div>
+
+        <section class="grade-cards">
+            <a class="card-vidro" routerLink="/admin/listar">
+                <div class="icone azul">
+                    <img src="cao.png" alt="Ver Pets">
+                </div>
+                <h3 class="blue">Ver Pets</h3>
+                <p>Veja todos os pets disponíveis para adoção.</p>
+            </a>
+
+            <a class="card-vidro" routerLink="/admin/cadastrar">
+                <div class="icone laranja">
+                    <img src="gato.png" alt="Novo Pet">
+                </div>
+                <h3 class="orange">Novo Pet</h3>
+                <p>Cadastrar novo pet para adoção.</p>
+            </a>
+
+            <a class="card-vidro" routerLink="/admin/editar">
+                <div class="icone azul">
+                    <img src="editar.png" alt="Editar">
+                </div>
+                <h3 class="blue">Editar Pet</h3>
+                <p>Altere informações de pets cadastrados.</p>
+            </a>
+
+            <a class="card-vidro" routerLink="/admin/excluir">
+                <div class="icone laranja">
+                    <img src="excluir.png" alt="Excluir">
+                </div>
+                <h3 class="orange">Remover Pet</h3>
+                <p>Exclua registros de forma segura.</p>
+            </a>
+
+            <a class="card-vidro destaque" routerLink="/admin/interesses">
+                <div class="icone-destaque"><span class="material-icons">favorite</span></div>
+                <div class="texto-destaque">
+                    <h3>Interesses de Adoção</h3>
+                    <p>Confira quem deseja adotar seus animais.</p>
+                </div>
+            </a>
+
+            <a class="card-vidro destaque adotados" routerLink="/admin/adotados">
+                <div class="icone-destaque"><span class="material-icons">volunteer_activism</span></div>
+                <div class="texto-destaque">
+                    <h3>Animais Adotados</h3>
+                    <p>Veja os pets que já encontraram um lar e os dados dos adotantes.</p>
+                </div>
+            </a>
+
+            <a class="card-vidro destaque admins" routerLink="/admin/gerenciar-admins">
+                <div class="icone-destaque"><span class="material-icons">manage_accounts</span></div>
+                <div class="texto-destaque">
+                    <h3>Gerenciar Admins</h3>
+                    <p>Adicione ou remova usuários com acesso ao painel.</p>
+                </div>
+            </a>
+        </section>
+    </div>
+</main>
+
+<app-footer-admin></app-footer-admin>

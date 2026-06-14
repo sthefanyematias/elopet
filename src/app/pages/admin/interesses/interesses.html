@@ -1,0 +1,166 @@
+<app-header-admin></app-header-admin>
+
+<app-modal *ngIf="modalAberto" [titulo]="modalTitulo" [mensagem]="modalMensagem" [tipo]="modalTipo"
+    (fechar)="modalAberto = false">
+</app-modal>
+
+<section class="pagina-lista">
+    <div class="painel">
+        <div class="painel-topo">
+            <h1>Interesses de Adoção</h1>
+        </div>
+        <p class="subtitulo">Veja quem demonstrou interesse em adotar seus pets.</p>
+        <hr class="divisor">
+
+        <div class="loading-state" *ngIf="carregando">
+            <div class="spinner"></div>
+            <p>Carregando interesses...</p>
+        </div>
+
+        <ng-container *ngIf="!carregando">
+            <div class="secao-titulo">
+                <span class="material-icons">pending_actions</span>
+                <h2>Aguardando Decisão</h2>
+                <span class="badge-count">{{ interessesAtivos.length }}</span>
+            </div>
+
+            <div class="sem-dados" *ngIf="interessesAtivos.length === 0">
+                <span class="material-icons">favorite_border</span>
+                <p>Nenhum interesse pendente no momento.</p>
+            </div>
+
+            <div class="tabela-wrapper" *ngIf="interessesAtivos.length > 0">
+                <table class="tabela">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Pet</th>
+                            <th>Nome</th>
+                            <th>CPF</th>
+                            <th>E-mail</th>
+                            <th>WhatsApp</th>
+                            <th>Data</th>
+                            <th>Situação</th>
+                            <th>Mensagem</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of interessesAtivos">
+                            <td>{{ item.id }}</td>
+                            <td><span class="badge azul">{{ item.nomePet }}</span></td>
+                            <td class="nome-pet">{{ item.nome }}</td>
+                            <td>{{ item.cpf }}</td>
+                            <td>{{ item.email }}</td>
+                            <td>{{ item.telefone }}</td>
+                            <td>{{ formatarData(item.data) }}</td>
+                            <td>
+                                <span class="badge" [ngClass]="item.listaEspera ? 'laranja' : 'verde'">
+                                    {{ item.listaEspera ? 'Lista de espera' : 'Principal' }}
+                                </span>
+                            </td>
+                            <td>
+                                <span class="motivo" [title]="item.motivo">
+                                    {{ item.motivo ? (item.motivo.length > 30 ? (item.motivo | slice:0:30) + '...' :
+                                    item.motivo) : '—' }}
+                                </span>
+                            </td>
+                            <td class="acoes-td">
+                                <button class="btn-acao adotar" (click)="confirmarAdocao(item)" title="Conceder Adoção"
+                                    [disabled]="item.listaEspera">
+                                    <span class="material-icons">volunteer_activism</span>
+                                </button>
+                                <button class="btn-acao excluir" (click)="confirmarExclusao(item)" title="Remover">
+                                    <span class="material-icons">delete</span>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <ng-container *ngIf="interessesConcedidos.length > 0">
+                <div class="secao-titulo concedidos" style="margin-top: 40px;">
+                    <span class="material-icons">check_circle</span>
+                    <h2>Adoção Concedida</h2>
+                    <span class="badge-count concedido">{{ interessesConcedidos.length }}</span>
+                </div>
+
+                <div class="tabela-wrapper tabela-concedida">
+                    <table class="tabela tabela-cinza">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Pet</th>
+                                <th>Nome</th>
+                                <th>CPF</th>
+                                <th>E-mail</th>
+                                <th>WhatsApp</th>
+                                <th>Data</th>
+                                <th>Situação</th>
+                                <th>Mensagem</th>
+                                <th>Ação</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of interessesConcedidos" class="linha-concedida">
+                                <td>{{ item.id }}</td>
+                                <td><span class="badge cinza">{{ item.nomePet }}</span></td>
+                                <td class="nome-pet">{{ item.nome }}</td>
+                                <td>{{ item.cpf }}</td>
+                                <td>{{ item.email }}</td>
+                                <td>{{ item.telefone }}</td>
+                                <td>{{ formatarData(item.data) }}</td>
+                                <td>
+                                    <span class="badge badge-adotado-label">Adoção concedida ✓</span>
+                                </td>
+                                <td>
+                                    <span class="motivo">
+                                        {{ item.motivo ? (item.motivo.length > 30 ? (item.motivo | slice:0:30) + '...' :
+                                        item.motivo) : '—' }}
+                                    </span>
+                                </td>
+                                <td class="acoes-td">
+                                    <button class="btn-acao excluir" (click)="confirmarExclusao(item)" title="Remover">
+                                        <span class="material-icons">delete</span>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </ng-container>
+
+        </ng-container>
+    </div>
+</section>
+
+<div class="modal-overlay" *ngIf="itemParaAdotar">
+    <div class="modal-confirmacao">
+        <span class="material-icons icone-alerta" style="color: #2868bb;">volunteer_activism</span>
+        <h2>Conceder Adoção</h2>
+        <p>Confirmar que <strong>{{ itemParaAdotar?.nome }}</strong> adotará
+            <strong>{{ itemParaAdotar?.nomePet }}</strong>?
+        </p>
+        <p class="aviso">O animal sairá da vitrine e será registrado como adotado.</p>
+        <div class="modal-acoes">
+            <button class="btn-confirmar" (click)="concederAdocao()">Sim, confirmar</button>
+            <button class="btn-cancelar-modal" (click)="itemParaAdotar = null">Cancelar</button>
+        </div>
+    </div>
+</div>
+
+<div class="modal-overlay" *ngIf="itemParaExcluir">
+    <div class="modal-confirmacao">
+        <span class="material-icons icone-alerta">warning</span>
+        <h2>Remover Interesse</h2>
+        <p>Deseja remover o interesse de <strong>{{ itemParaExcluir?.nome }}</strong>?</p>
+        <p class="aviso">Esta ação não pode ser desfeita.</p>
+        <div class="modal-acoes">
+            <button class="btn-confirmar" (click)="excluirInteresse()">Sim, remover</button>
+            <button class="btn-cancelar-modal" (click)="itemParaExcluir = null">Cancelar</button>
+        </div>
+    </div>
+</div>
+
+<app-footer-admin></app-footer-admin>

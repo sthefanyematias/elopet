@@ -1,0 +1,22 @@
+<div class="modal-overlay" (click)="aoFechar()">
+    <div class="modal-card" [ngClass]="tipo" (click)="$event.stopPropagation()">
+
+        <div class="modal-header">
+            <span class="material-icons icone-fechar" (click)="aoFechar()">close</span>
+        </div>
+
+        <div class="modal-body">
+            <div class="icone-status" [ngClass]="tipo">
+                <span class="material-icons">
+                    {{ tipo === 'sucesso' ? 'check_circle' : tipo === 'erro' ? 'cancel' : 'info' }}
+                </span>
+            </div>
+            <h2>{{ titulo }}</h2>
+            <p>{{ mensagem }}</p>
+        </div>
+
+        <div class="modal-footer">
+            <button class="btn-modal" (click)="aoFechar()">OK</button>
+        </div>
+    </div>
+</div>

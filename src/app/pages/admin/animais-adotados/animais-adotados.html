@@ -1,0 +1,93 @@
+
+<app-header-admin></app-header-admin>
+
+<section class="pagina-lista">
+    <div class="painel">
+
+        <div class="painel-topo">
+            <h1>Animais Adotados</h1>
+        </div>
+        <p class="subtitulo">Histórico de pets que já encontraram um lar, com os dados do adotante.</p>
+        <hr class="divisor">
+
+        <div class="loading-state" *ngIf="carregando">
+            <div class="spinner"></div>
+            <p>Carregando...</p>
+        </div>
+
+        <div class="sem-dados" *ngIf="!carregando && adotados.length === 0">
+            <span class="material-icons">pets</span>
+            <p>Nenhum animal adotado ainda.</p>
+        </div>
+
+        <div class="grid-adotados" *ngIf="!carregando && adotados.length > 0">
+            <div class="card-adotado" *ngFor="let item of adotados">
+                <div class="card-img-wrapper">
+                    <img [src]="getImagem(item.pet.imagem)" [alt]="item.pet.nome" loading="lazy">
+                    <span class="badge-adotado">Adotado ✓</span>
+                </div>
+                <div class="card-body">
+                    <h3>{{ item.pet.nome }}</h3>
+                    <p class="sub">{{ item.pet.especie }} • {{ item.pet.porte }} • {{ item.pet.sexo }}</p>
+                    <hr>
+                    <h4>Adotante</h4>
+                    <p>
+                        <span class="material-icons" style="font-size:16px;vertical-align:middle">person</span>
+                        {{ item.interesse?.nome || '—' }}
+                    </p>
+                    <p>
+                        <span class="material-icons" style="font-size:16px;vertical-align:top">badge</span>
+                        <span style="display:flex; flex-direction:column;">
+                            <span>CPF: {{ item.interesse?.cpf || '—' }}</span>
+                            <span>RG: {{ item.interesse?.rg || '—' }}</span>
+                        </span>
+                    </p>
+                    <p>
+                        <span class="material-icons" style="font-size:16px;vertical-align:middle">email</span>
+                        {{ item.interesse?.email || '—' }}
+                    </p>
+                    <p>
+                        <span class="material-icons" style="font-size:16px;vertical-align:middle">phone</span>
+                        {{ item.interesse?.telefone || '—' }}
+                    </p>
+                    <p class="data-registro">
+                        Adotado em: {{ formatarData(item.interesse?.data) }}
+                    </p>
+                    <button class="btn-desfazer" (click)="confirmarDesfazer(item)">
+                        <span class="material-icons">undo</span> Desfazer Adoção
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<div class="modal-overlay" *ngIf="itemParaDesfazer">
+    <div class="modal-confirmacao">
+        <span class="material-icons icone-alerta">warning</span>
+        <h2>Desfazer Adoção</h2>
+        <p>Tem certeza que deseja desfazer a adoção de <strong>{{ itemParaDesfazer?.pet?.nome }}</strong>?</p>
+        <p class="aviso">O animal voltará a aparecer na vitrine como disponível.</p>
+        <div class="modal-acoes">
+            <button class="btn-confirmar" (click)="desfazerAdocao()">Sim, desfazer</button>
+            <button class="btn-cancelar-modal" (click)="itemParaDesfazer = null">Cancelar</button>
+        </div>
+    </div>
+</div>
+
+<div class="modal-overlay" *ngIf="modalAberto">
+    <div class="modal-confirmacao">
+        <span class="material-icons icone-alerta"
+            [style.color]="modalTipo === 'sucesso' ? '#2868bb' : modalTipo === 'info' ? '#fd7217' : '#e53935'">
+            {{ modalTipo === 'sucesso' ? 'check_circle' : modalTipo === 'info' ? 'info' : 'cancel' }}
+        </span>
+        <h2>{{ modalTitulo }}</h2>
+        <p>{{ modalMensagem }}</p>
+        <div class="modal-acoes">
+            <button class="btn-confirmar" (click)="modalAberto = false">OK</button>
+        </div>
+    </div>
+</div>
+
+<app-footer-admin></app-footer-admin>

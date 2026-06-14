@@ -1,0 +1,138 @@
+
+<app-header-admin></app-header-admin>
+
+<app-modal *ngIf="modalAberto" [titulo]="modalTitulo" [mensagem]="mensagemModal" [tipo]="modalTipo"
+    (fechar)="fecharModal()">
+</app-modal>
+
+<section class="principal-form">
+    <div class="cartao-vidro painel-formulario">
+
+        <h1>{{ idPet ? 'Editar Dados do Pet' : 'Cadastrar Pet para Adoção' }}</h1>
+        <hr class="divisor-vidro">
+
+        <form [formGroup]="formPet">
+
+            <div class="campo" *ngIf="idPet">
+                <label>ID do Registro</label>
+                <input type="text" [value]="idPet" readonly>
+            </div>
+
+            <div class="campo">
+                <label>Nome do pet <span style="color:red">*</span></label>
+                <input type="text" formControlName="nome" placeholder="Ex: Fred" (keypress)="apenasLetras($event)">
+            </div>
+
+            <div class="campo-grupo">
+                <div class="campo">
+                    <label>Espécie <span style="color:red">*</span></label>
+                    <select formControlName="especie">
+                        <option value="">Selecione</option>
+                        <option value="Cachorro">Cachorro</option>
+                        <option value="Gato">Gato</option>
+                    </select>
+                </div>
+                <div class="campo">
+                    <label>Sexo <span style="color:red">*</span></label>
+                    <select formControlName="sexo">
+                        <option value="">Selecione</option>
+                        <option value="Macho">Macho</option>
+                        <option value="Fêmea">Fêmea</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="campo-grupo">
+                <div class="campo">
+                    <label>Idade <span style="color:red">*</span></label>
+                    <div style="display:flex; gap:8px; align-items:stretch;">
+                        <input type="number" formControlName="idade" placeholder="Ex: 3"
+                            (keypress)="apenasNumeros($event)" min="0" style="flex:1;">
+                        <select formControlName="unidadeIdade" style="flex:1;">
+                            <option value="dias">Dia(s)</option>
+                            <option value="meses">Mês/Meses</option>
+                            <option value="anos">Ano(s)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="campo">
+                    <label>Porte <span style="color:red">*</span></label>
+                    <select formControlName="porte">
+                        <option value="">Selecione</option>
+                        <option value="Pequeno">Pequeno</option>
+                        <option value="Médio">Médio</option>
+                        <option value="Grande">Grande</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="campo">
+                <label>Status no Sistema</label>
+                <select formControlName="status" (change)="aoAlterarStatus()">
+                    <option value="Disponível">Disponível</option>
+                    <option value="Adotado">Adotado</option>
+                </select>
+            </div>
+
+            <div class="secao-adotante" *ngIf="formPet.get('status')?.value === 'Adotado'">
+                <hr class="divisor-vidro">
+                <h3 class="titulo-adotante">
+                    <span class="material-icons">person_pin</span>
+                    Vincular Adotante
+                </h3>
+
+                <p *ngIf="idPet && interessesDoPet.length === 0" class="aviso-sem-interesse">
+                    <span class="material-icons">info</span>
+                    Nenhum interesse cadastrado para este pet ainda.
+                </p>
+
+                <div class="grid-interessados" *ngIf="interessesDoPet.length > 0">
+                    <div class="card-interessado" *ngFor="let i of interessesDoPet"
+                        [class.selecionado]="adotanteIdSelecionado === i.id" (click)="selecionarAdotanteCard(i)">
+                        <div class="card-radio">
+                            <span class="material-icons">
+                                {{ adotanteIdSelecionado === i.id ? 'radio_button_checked' : 'radio_button_unchecked' }}
+                            </span>
+                        </div>
+                        <div class="card-dados">
+                            <strong>{{ i.nome }}</strong>
+                            <span>CPF: {{ i.cpf }}</span>
+                            <span>{{ i.email }}</span>
+                            <span>{{ i.telefone }}</span>
+                            <span class="badge-espera" *ngIf="i.listaEspera">Lista de espera</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="campo">
+                <label>
+                    Foto do Pet
+                    <span style="font-size:12px; color:#888">(opcional)</span>
+                </label>
+                <input type="file" (change)="aoSelecionarArquivo($event)" accept="image/*">
+                <small *ngIf="arquivoSelecionado" style="color: #2868bb; margin-top: 4px; display:block">
+                    📎 {{ arquivoSelecionado.name }}
+                </small>
+            </div>
+
+            <div class="campo">
+                <label>Descrição Breve <span style="color:red">*</span></label>
+                <textarea formControlName="descricao" rows="3"
+                    placeholder="Conte um pouco sobre a personalidade do pet..."></textarea>
+            </div>
+
+            <div class="rodape-formulario">
+                <button type="button" class="btn-gravar" (click)="salvar()" [disabled]="salvando">
+                    {{ salvando ? 'Salvando...' : 'Salvar' }}
+                </button>
+                <button type="button" class="btn-cancelar" (click)="voltar()" [disabled]="salvando">
+                    Voltar
+                </button>
+            </div>
+
+        </form>
+    </div>
+</section>
+
+<app-footer-admin></app-footer-admin>

@@ -1,0 +1,19 @@
+{
+  "extends": [
+    "development"
+  ],
+  "hints": {
+    "axe/text-alternatives": [
+      "default",
+      {
+        "image-alt": "off"
+      }
+    ],
+    "disown-opener": "off",
+    "compat-api/css": "off",
+    "no-inline-styles": "off",
+    "axe/forms": "off",
+    "compat-api/html": "off",
+    "button-type": "off"
+  }
+}

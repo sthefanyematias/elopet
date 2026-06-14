@@ -1,0 +1,62 @@
+
+<app-header-admin></app-header-admin>
+
+<app-modal *ngIf="modalAberto" [titulo]="modalTitulo" [mensagem]="modalMensagem" [tipo]="modalTipo"
+    (fechar)="fecharModal()">
+</app-modal>
+
+<section class="pagina-lista">
+    <div class="painel">
+
+        <div class="painel-topo">
+            <h1>Remover Pet</h1>
+        </div>
+        <p class="subtitulo">Selecione o pet que deseja remover do sistema.</p>
+        <hr class="divisor">
+
+        <div class="loading-state" *ngIf="carregando">
+            <div class="spinner"></div>
+            <p>Carregando pets...</p>
+        </div>
+
+        <div class="sem-dados" *ngIf="!carregando && pets.length === 0">
+            <span class="material-icons">pets</span>
+            <p>Nenhum pet cadastrado ainda.</p>
+        </div>
+
+        <div class="grid-cards" *ngIf="!carregando && pets.length > 0">
+            <div class="card-admin" *ngFor="let pet of pets">
+                <div class="card-img-wrapper">
+                    <img [src]="getImagem(pet.imagem)" [alt]="pet.nome" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-badges">
+                        <span class="badge azul">{{ pet.especie }}</span>
+                        <span class="badge laranja">{{ pet.porte }}</span>
+                    </div>
+                    <h3>{{ pet.nome }}</h3>
+                    <p>{{ pet.sexo }} • {{ pet.idade }} ano(s)</p>
+                    <button class="btn-acao-card excluir" (click)="confirmarExclusao(pet)">
+                        <span class="material-icons">delete</span> Remover
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<div class="modal-overlay" *ngIf="petParaExcluir">
+    <div class="modal-confirmacao">
+        <span class="material-icons icone-alerta">warning</span>
+        <h2>Confirmar Exclusão</h2>
+        <p>Tem certeza que deseja excluir <strong>{{ petParaExcluir.nome }}</strong>?</p>
+        <p class="aviso">Esta ação não pode ser desfeita.</p>
+        <div class="modal-acoes">
+            <button class="btn-confirmar" (click)="excluirPet()">Sim, excluir</button>
+            <button class="btn-cancelar-modal" (click)="petParaExcluir = null">Cancelar</button>
+        </div>
+    </div>
+</div>
+
+<app-footer-admin></app-footer-admin>

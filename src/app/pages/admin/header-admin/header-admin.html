@@ -1,0 +1,50 @@
+
+<header class="admin-header">
+  <div class="container-header">
+
+    <div class="logo" routerLink="/admin/home">
+      <img src="logo.png" alt="Logo EloPet" class="img-logo">
+      <span class="logo-texto">
+        <span style="color: #2868bb;">elo</span><span style="color: #fd7217;">pet</span>
+      </span>
+      <span class="badge-admin">admin</span>
+    </div>
+
+    <nav class="admin-nav">
+      <a routerLink="/admin/home" routerLinkActive="active">Início</a>
+
+      <div class="nav-dropdown" (mouseenter)="dropdownAberto = true" (mouseleave)="dropdownAberto = false">
+        <button class="nav-dropdown-btn" [class.active]="isPetsRoute()">
+          Pets <span class="material-icons">expand_more</span>
+        </button>
+        <div class="dropdown-menu" *ngIf="dropdownAberto">
+          <a routerLink="/admin/listar" (click)="dropdownAberto = false">
+            <span class="material-icons">list</span> Listagem
+          </a>
+          <a routerLink="/admin/cadastrar" (click)="dropdownAberto = false">
+            <span class="material-icons">add_circle</span> Cadastrar
+          </a>
+          <a routerLink="/admin/editar" (click)="dropdownAberto = false">
+            <span class="material-icons">edit</span> Editar
+          </a>
+          <a routerLink="/admin/excluir" (click)="dropdownAberto = false">
+            <span class="material-icons">delete</span> Excluir
+          </a>
+        </div>
+      </div>
+
+      <a routerLink="/admin/interesses" routerLinkActive="active">Interesses</a>
+      <a routerLink="/admin/adotados" routerLinkActive="active">Adotados</a>
+      <a routerLink="/admin/gerenciar-admins" routerLinkActive="active">Admins</a>
+
+      <div class="admin-logado-info">
+        <span class="material-icons" style="font-size:18px">account_circle</span>
+        <span class="admin-email-label">{{ nomeAdmin }}</span>
+      </div>
+
+      <button class="btn-logout" (click)="sair()">Sair</button>
+    </nav>
+
+  </div>
+</header>
+<div class="faixa-laranja"></div>

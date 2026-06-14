@@ -1,0 +1,120 @@
+/* Container que ocupa a tela toda e remove interferência de headers/footers */
+.login-page-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #fd7217;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    font-family: 'Poppins', sans-serif;
+}
+
+.login-card {
+    background: white;
+    padding: 50px 40px;
+    border-radius: 30px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+}
+
+.logo-texto {
+    font-size: 38px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.subtitulo {
+    color: #64748b;
+    margin-bottom: 30px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.form-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #334155;
+    font-size: 0.9rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #f1f5f9;
+    border-radius: 15px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+    border-color: #2868bb;
+}
+
+.btn-entrar {
+    width: 100%;
+    background: #2868bb;
+    color: white;
+    border: none;
+    padding: 16px;
+    border-radius: 15px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 10px;
+}
+
+.btn-entrar:hover:not(:disabled) {
+    background: #1e5091;
+    transform: translateY(-2px);
+}
+
+.btn-entrar:disabled {
+    background: #cbd5e1;
+    cursor: not-allowed;
+}
+
+.voltar-site {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.voltar-site a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 100%;
+    color: #2868bb;
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 16px;
+    border: 2px solid #2868bb;
+    border-radius: 15px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+.voltar-site a:hover {
+    background-color: #2868bb;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(40, 104, 187, 0.25);
+}
+
+.voltar-site a:hover .material-icons {
+    color: #ffffff;
+}

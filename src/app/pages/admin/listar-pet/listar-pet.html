@@ -1,0 +1,91 @@
+
+<app-header-admin></app-header-admin>
+
+<app-modal *ngIf="modalAberto" [titulo]="modalTitulo" [mensagem]="modalMensagem" [tipo]="modalTipo"
+    (fechar)="fecharModal()">
+</app-modal>
+
+<section class="pagina-lista">
+    <div class="painel">
+
+        <div class="painel-topo">
+            <h1>Pets Cadastrados</h1>
+            <button class="btn-novo" routerLink="/admin/cadastrar">
+                <span class="material-icons">add</span> Novo Pet
+            </button>
+        </div>
+
+        <hr class="divisor">
+
+        <div class="loading-state" *ngIf="carregando">
+            <div class="spinner"></div>
+            <p>Carregando pets...</p>
+        </div>
+
+        <div class="sem-dados" *ngIf="!carregando && pets.length === 0">
+            <span class="material-icons">pets</span>
+            <p>Nenhum pet cadastrado ainda.</p>
+        </div>
+
+        <div class="tabela-wrapper" *ngIf="!carregando && pets.length > 0">
+            <table class="tabela">
+                <thead>
+                    <tr>
+                        <th>Foto</th>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Espécie</th>
+                        <th>Sexo</th>
+                        <th>Porte</th>
+                        <th>Idade</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let pet of pets">
+                        <td>
+                            <img [src]="getImagem(pet.imagem)" [alt]="pet.nome" class="foto-mini" loading="lazy">
+                        </td>
+                        <td>#{{ pet.id }}</td>
+                        <td class="nome-pet">{{ pet.nome }}</td>
+                        <td>{{ pet.especie }}</td>
+                        <td>{{ pet.sexo }}</td>
+                        <td>{{ pet.porte }}</td>
+                        <td>{{ pet.idade }} {{ pet.unidadeIdade || 'ano(s)' }}</td>
+                        <td>
+                            <span class="badge-status" [class.disponivel]="pet.status === 'Disponível'"
+                                [class.adotado]="pet.status === 'Adotado'">
+                                {{ pet.status }}
+                            </span>
+                        </td>
+                        <td class="acoes">
+                            <button class="btn-acao editar" [routerLink]="['/admin/cadastrar', pet.id]" title="Editar">
+                                <span class="material-icons">edit</span>
+                            </button>
+                            <button class="btn-acao excluir" (click)="confirmarExclusao(pet)" title="Excluir">
+                                <span class="material-icons">delete</span>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</section>
+
+<div class="modal-overlay" *ngIf="petParaExcluir">
+    <div class="modal-confirmacao">
+        <span class="material-icons icone-alerta">warning</span>
+        <h2>Confirmar Exclusão</h2>
+        <p>Tem certeza que deseja excluir <strong>{{ petParaExcluir.nome }}</strong>?</p>
+        <p class="aviso">Esta ação não pode ser desfeita.</p>
+        <div class="modal-acoes">
+            <button class="btn-confirmar" (click)="excluirPet()">Sim, excluir</button>
+            <button class="btn-cancelar" (click)="petParaExcluir = null">Cancelar</button>
+        </div>
+    </div>
+</div>
+
+<app-footer-admin></app-footer-admin>

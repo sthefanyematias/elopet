@@ -39,6 +39,6 @@ export class EditarPet implements OnInit {
   getImagem(imagem: string): string {
     if (!imagem) return '';
     if (imagem.startsWith('data:image')) return imagem;
-    return `http://assets/${imagem}`;
+    return `/assets/${imagem}`;
   }
 }

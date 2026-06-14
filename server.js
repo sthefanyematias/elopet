@@ -35,14 +35,12 @@ app.use('/assets', express.static(assetsDir));
 const router = jsonServer.router(path.join(__dirname, 'db.json'));
 const jsonMiddlewares = jsonServer.defaults({ noCors: true });
 app.use(jsonMiddlewares);
-app.use('/pets', router);
-app.use('/usuarios', router);
-app.use('/interesses', router);
+app.use(router);
 
 const distPath = path.join(__dirname, 'dist/adocao/browser');
 app.use(express.static(distPath));
 
-app.get('/{*splat}', (req, res) => {
+app.get('*', (req, res) => {
   res.sendFile(path.join(distPath, 'index.html'));
 });
 

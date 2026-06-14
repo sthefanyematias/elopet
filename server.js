@@ -34,14 +34,18 @@ app.use('/assets', express.static(assetsDir));
 const distPath = path.join(__dirname, 'dist/adocao/browser');
 app.use(express.static(distPath));
 
+const apiRoutes = ['/pets', '/interesses', '/usuarios'];
+app.get('*', (req, res, next) => {
+  if (apiRoutes.some(route => req.path.startsWith(route))) {
+    return next();
+  }
+  res.sendFile(path.join(distPath, 'index.html'));
+});
+
 const router = jsonServer.router(path.join(__dirname, 'db.json'));
 const jsonMiddlewares = jsonServer.defaults({ noCors: true });
 app.use(jsonMiddlewares);
 app.use(router);
-
-app.get('*', (req, res) => {
-  res.sendFile(path.join(distPath, 'index.html'));
-});
 
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`Servidor rodando na porta ${PORT}`);

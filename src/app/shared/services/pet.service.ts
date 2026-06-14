@@ -1,4 +1,3 @@
-
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -8,9 +7,9 @@ import { Pet } from '../models/pet.model';
   providedIn: 'root'
 })
 export class PetService {
-  private readonly API = 'http://localhost:3000/pets';
-  private readonly API_INTERESSES = 'http://localhost:3000/interesses';
-  private readonly API_UPLOAD = 'http://localhost:3000/upload';
+  private readonly API = '/pets';
+  private readonly API_INTERESSES = '/interesses';
+  private readonly API_UPLOAD = '/upload';
 
   constructor(private http: HttpClient) { }
 

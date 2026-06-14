@@ -5,7 +5,7 @@ import { Usuario } from '../models/usuario.model';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-    private readonly API = 'http://localhost:3000/usuarios';
+    private readonly API = '/usuarios';
     readonly ADMIN_PRINCIPAL = 'admin@elopet.com';
 
     constructor(private http: HttpClient) { }

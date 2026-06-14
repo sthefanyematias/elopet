@@ -82,7 +82,7 @@ export class Vitrine implements OnInit, OnDestroy {
   getImagem(imagem: string): string {
     if (!imagem) return '';
     if (imagem.startsWith('data:image')) return imagem;
-    return `http://localhost:3000/assets/${imagem}`;
+    return `http://assets/${imagem}`;
   }
 
   trackByPet(index: number, pet: Pet): number {

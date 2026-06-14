@@ -100,7 +100,7 @@ export class DetalhesPet implements OnInit, OnDestroy {
   getImagem(imagem: string): string {
     if (!imagem) return '';
     if (imagem.startsWith('data:image')) return imagem;
-    return `http://localhost:3000/assets/${imagem}`;
+    return `http://assets/${imagem}`;
   }
 
   private limparMascara(valor: string): string {

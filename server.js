@@ -1,4 +1,3 @@
-
 const jsonServer = require('json-server');
 const express = require('express');
 const multer = require('multer');
@@ -32,13 +31,13 @@ app.post('/upload', upload.single('imagem'), (req, res) => {
 
 app.use('/assets', express.static(assetsDir));
 
+const distPath = path.join(__dirname, 'dist/adocao/browser');
+app.use(express.static(distPath));
+
 const router = jsonServer.router(path.join(__dirname, 'db.json'));
 const jsonMiddlewares = jsonServer.defaults({ noCors: true });
 app.use(jsonMiddlewares);
 app.use(router);
-
-const distPath = path.join(__dirname, 'dist/adocao/browser');
-app.use(express.static(distPath));
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(distPath, 'index.html'));

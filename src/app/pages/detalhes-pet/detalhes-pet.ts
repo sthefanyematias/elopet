@@ -100,7 +100,7 @@ export class DetalhesPet implements OnInit, OnDestroy {
   getImagem(imagem: string): string {
     if (!imagem) return '';
     if (imagem.startsWith('data:image')) return imagem;
-    return `http://assets/${imagem}`;
+    return `/assets/${imagem}`;
   }
 
   private limparMascara(valor: string): string {
@@ -109,10 +109,7 @@ export class DetalhesPet implements OnInit, OnDestroy {
 
   enviarInteresse(): void {
     this.formAdocao.markAllAsTouched();
-
-    if (this.formAdocao.invalid) {
-      return;
-    }
+    if (this.formAdocao.invalid) return;
 
     const { cpf, rg } = this.formAdocao.value;
     const cpfLimpo = this.limparMascara(cpf);

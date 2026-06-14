@@ -39,7 +39,7 @@ app.use('/pets', router);
 app.use('/usuarios', router);
 app.use('/interesses', router);
 
-const distPath = path.join(__dirname, 'dist/elopet/browser');
+const distPath = path.join(__dirname, 'dist/adocao/browser');
 app.use(express.static(distPath));
 
 app.get('/{*splat}', (req, res) => {

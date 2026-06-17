@@ -156,10 +156,10 @@ Senha:  1234
 
 O branch `main` contém as configurações necessárias para deploy em container. O `Dockerfile` realiza o build da aplicação Angular e inicializa o servidor Node. O `server.js` unifica frontend e backend na porta `3000`, servindo o build do Angular como SPA e expondo a API do JSON Server na mesma porta, com roteamento configurado para que todas as rotas do painel administrativo sejam corretamente resolvidas.
 
-<br>
 
-<div align="center">
+
+<!-- <div align="center">
 
 [![EloPet](https://img.shields.io/badge/🐾%20%20EloPet-2868bb?style=for-the-badge&logoColor=white)](https://elopet1-edjtywt2.b4a.run/home)&nbsp;&nbsp;[![Painel Admin](https://img.shields.io/badge/🔐%20%20Admin-fd7217?style=for-the-badge&logoColor=white)](https://elopet1-edjtywt2.b4a.run/admin/login)
 
-</div>
+</div> -->

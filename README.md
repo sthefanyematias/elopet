@@ -17,7 +17,7 @@ A aplicação é dividida em duas interfaces: uma área pública para visitantes
 | Backend | Node.js + JSON Server |
 | Upload de arquivos | Multer |
 | Persistência | JSON (db.json) |
-| Deploy | Back4App (Container) |
+| Deploy | Render (Docker Container) |
 
 <br>
 
@@ -116,7 +116,7 @@ O backend expõe uma REST API gerada pelo JSON Server, estendida com uma rota cu
 
 | Branch | Descrição |
 |---|---|
-| `main` | Versão de produção — configurada para deploy no Back4App via Docker |
+| `main` | Versão de produção — configurada para deploy automático no Render via Docker |
 | `local` | Versão para execução local — Angular CLI + JSON Server rodando separadamente |
 
 <br>
@@ -154,12 +154,8 @@ Senha:  1234
 
 ## Deploy
 
-O branch `main` contém as configurações necessárias para deploy em container. O `Dockerfile` realiza o build da aplicação Angular e inicializa o servidor Node. O `server.js` unifica frontend e backend na porta `3000`, servindo o build do Angular como SPA e expondo a API do JSON Server na mesma porta, com roteamento configurado para que todas as rotas do painel administrativo sejam corretamente resolvidas.
+O branch `main` contém as configurações necessárias para deploy em container Docker na plataforma **Render**. O `Dockerfile` realiza o build de produção da aplicação Angular e inicializa o servidor Node.js. O arquivo `server.js` unifica o frontend e o backend, servindo o build do Angular como uma SPA e expondo a API do JSON Server na porta dinâmica definida pelo ambiente (`process.env.PORT`).
 
+> **Tempo de Carregamento Inicial:** Por estar hospedado em uma instância gratuita, o servidor "dorme" após 15 minutos de inatividade. O primeiro acesso após esse período pode levar cerca de **50 segundos** para responder enquanto o container é reativado.
 
-
-<!-- <div align="center">
-
-[![EloPet](https://img.shields.io/badge/🐾%20%20EloPet-2868bb?style=for-the-badge&logoColor=white)](https://elopet1-edjtywt2.b4a.run/home)&nbsp;&nbsp;[![Painel Admin](https://img.shields.io/badge/🔐%20%20Admin-fd7217?style=for-the-badge&logoColor=white)](https://elopet1-edjtywt2.b4a.run/admin/login)
-
-</div> -->
+> **Persistência de Dados Volátil:** O servidor possui armazenamento efêmero. Isso significa que novos pets cadastrados, interesses registrados ou uploads de imagens feitos diretamente na aplicação web funcionarão perfeitamente no momento, mas serão **resetados para o estado inicial** periodicamente quando o servidor reiniciar.
